@@ -6,8 +6,8 @@
     <title>Download Video TikTok Tanpa Watermark Gratis - TikTok Downloader Pro</title>
     
     <!-- Meta Tag SEO Utama -->
-    <meta name="description" content="Download video TikTok tanpa watermark gratis. Cepat, mudah, kualitas HD. Support semua link TikTok, langsung download MP4 dan MP3.">
-    <meta name="keywords" content="tiktok downloader, download tiktok, tiktok tanpa watermark, download video tiktok, tiktok save, tiktok video downloader, download tiktok mp4, tiktok audio downloader">
+    <meta name="description" content="Download video TikTok tanpa watermark gratis. Cepat, mudah, kualitas HD. Support semua link TikTok, langsung download MP4 dan MP3. Tanpa registrasi!">
+    <meta name="keywords" content="tiktok downloader, download tiktok, tiktok tanpa watermark, download video tiktok, tiktok save, tiktok video downloader, download tiktok mp4, tiktok audio downloader, download tiktok no watermark">
     <meta name="author" content="Saras Cantik">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
@@ -25,12 +25,30 @@
     <meta name="twitter:title" content="TikTok Downloader Pro - Download Video TikTok Tanpa Watermark">
     <meta name="twitter:description" content="Download video TikTok tanpa watermark gratis. Cepat, mudah, kualitas HD.">
     
-    <!-- Canonical URL (Ganti dengan domain baru) -->
+    <!-- Canonical URL -->
     <link rel="canonical" href="https://tiktokdl.my.id/">
+    
+    <!-- Schema Markup untuk Rich Snippet -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "TikTok Downloader Pro",
+      "description": "Download video TikTok tanpa watermark gratis. Cepat, mudah, kualitas HD. Support semua link TikTok.",
+      "url": "https://tiktokdl.my.id/",
+      "applicationCategory": "Utility",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "IDR"
+      }
+    }
+    </script>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
-</head>
+    
     <style>
         * {
             margin: 0;
@@ -78,7 +96,6 @@
             66% { transform: translate(-20px, 20px) scale(0.9); }
         }
 
-        /* Container - Tanpa border, full transparan */
         .container {
             position: relative;
             z-index: 10;
@@ -94,7 +111,6 @@
 
         .container:hover { transform: translateY(-5px); }
 
-        /* Header - Tanpa border */
         .header {
             background: transparent;
             backdrop-filter: none;
@@ -153,7 +169,6 @@
 
         .content { padding: 35px; }
 
-        /* Ad Container - Tanpa border */
         .ad-container {
             background: rgba(0,0,0,0.3);
             backdrop-filter: none;
@@ -174,7 +189,6 @@
 
         .ad-banner { display: flex; justify-content: center; align-items: center; overflow-x: auto; max-width: 100%; }
 
-        /* Input Section - Tanpa border */
         .input-section {
             background: rgba(0,0,0,0.3);
             backdrop-filter: none;
@@ -239,7 +253,6 @@
             transform: translateY(-3px);
         }
 
-        /* Tombol Download Ganda */
         .download-buttons {
             display: flex;
             gap: 15px;
@@ -291,7 +304,6 @@
             transform: none;
         }
 
-        /* Features Grid - Tanpa border */
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -325,7 +337,6 @@
         .feature-card h4 { font-size: 14px; color: white; margin-bottom: 5px; }
         .feature-card p { font-size: 11px; color: rgba(255,255,255,0.6); }
 
-        /* Loading */
         .loading-overlay {
             position: fixed;
             top: 0;
@@ -364,7 +375,6 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Result Section - Tanpa border */
         .result-section {
             display: none;
             animation: fadeInUp 0.5s ease-out;
@@ -402,7 +412,6 @@
         .video-stats span { display: flex; align-items: center; gap: 6px; }
         .video-stats i { color: #fe2c55; }
 
-        /* History Section - Tanpa border */
         .history-section {
             margin-top: 25px;
             padding-top: 20px;
@@ -441,7 +450,6 @@
             transform: translateX(5px);
         }
 
-        /* Toast */
         .toast {
             position: fixed;
             bottom: 30px;
@@ -467,7 +475,6 @@
             opacity: 1;
         }
 
-        /* Tips Section - Tanpa border */
         .tips-section {
             background: rgba(0,0,0,0.3);
             backdrop-filter: none;
@@ -490,7 +497,6 @@
             color: rgba(255,255,255,0.8);
         }
 
-        /* SEO Content - Tanpa border */
         .seo-content {
             margin-top: 30px;
             padding: 20px;
@@ -505,13 +511,30 @@
             color: white;
         }
 
+        .seo-content h3 {
+            font-size: 16px;
+            margin: 15px 0 10px;
+            color: #ffd700;
+        }
+
         .seo-content p {
             font-size: 13px;
             color: rgba(255,255,255,0.7);
             line-height: 1.6;
+            margin-bottom: 10px;
         }
 
-        /* Credit */
+        .seo-content ul, .seo-content ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+            color: rgba(255,255,255,0.7);
+            font-size: 13px;
+        }
+
+        .seo-content li {
+            margin: 5px 0;
+        }
+
         .saras-credit {
             text-align: center;
             margin-top: 30px;
@@ -570,7 +593,7 @@
         </div>
         
         <div class="content">
-            <!-- Iklan Banner TOP - ProfitableCPM -->
+            <!-- Iklan Banner TOP -->
             <div class="ad-container">
                 <span class="ad-label"><i class="fas fa-ad"></i> Advertisement</span>
                 <div class="ad-banner">
@@ -595,7 +618,7 @@
                 </div>
             </div>
             
-            <!-- Tombol Download Ganda: Video + Audio -->
+            <!-- Tombol Download -->
             <div class="download-buttons">
                 <button class="btn-download-video" id="downloadVideoBtn">
                     <i class="fas fa-video"></i> Download Video
@@ -612,7 +635,7 @@
                 <div class="feature-card"><i class="fas fa-mobile-alt"></i><h4>Support Semua Link</h4><p>Video, live, short link</p></div>
             </div>
             
-            <!-- Iklan Banner MIDDLE - ProfitableCPM -->
+            <!-- Iklan Banner MIDDLE -->
             <div class="ad-container">
                 <span class="ad-label"><i class="fas fa-ad"></i> Advertisement</span>
                 <div class="ad-banner">
@@ -650,9 +673,39 @@
                 </div>
             </div>
             
+            <!-- SEO CONTENT - DIPERKAYA UNTUK RANKING GOOGLE -->
             <div class="seo-content">
-                <h2>TikTok Downloader - Unduh Video Tanpa Watermark</h2>
-                <p>TikTok Downloader Pro adalah alat gratis untuk mengunduh video TikTok tanpa watermark. Cukup tempel link video TikTok, pilih download video atau audio, dan file akan langsung tersimpan ke perangkat Anda.</p>
+                <h2>TikTok Downloader - Download Video TikTok Tanpa Watermark</h2>
+                <p>TikTok Downloader Pro adalah alat gratis terbaik untuk mengunduh video TikTok tanpa watermark. Cukup tempel link video TikTok, pilih download video atau audio, dan file akan langsung tersimpan ke perangkat Anda. Mendukung semua jenis link TikTok, termasuk video pendek (shorts), live streaming, dan link dari aplikasi.</p>
+                
+                <h3>✨ Fitur Unggulan TikTok Downloader Pro:</h3>
+                <ul>
+                    <li>✅ Download video TikTok tanpa watermark</li>
+                    <li>✅ Kualitas video HD original</li>
+                    <li>✅ Ekstrak audio MP3 dari video</li>
+                    <li>✅ Cepat dan mudah digunakan</li>
+                    <li>✅ Gratis tanpa registrasi</li>
+                    <li>✅ Support semua link TikTok</li>
+                    <li>✅ Riwayat download tersimpan otomatis</li>
+                    <li>✅ Bisa download video dari link pendek (vt.tiktok.com)</li>
+                </ul>
+                
+                <h3>📱 Cara Menggunakan TikTok Downloader Pro:</h3>
+                <ol>
+                    <li>Buka aplikasi TikTok dan pilih video yang ingin diunduh</li>
+                    <li>Klik tombol "Bagikan" lalu pilih "Salin tautan"</li>
+                    <li>Tempel link di kotak di atas</li>
+                    <li>Pilih "Download Video" atau "Download Audio MP3"</li>
+                    <li>File akan langsung terdownload ke perangkat Anda</li>
+                </ol>
+                
+                <h3>🎯 Kenapa Memilih TikTok Downloader Pro?</h3>
+                <p>Kami menyediakan layanan download TikTok tercepat, tanpa watermark, dan gratis selamanya. Support semua perangkat (HP, tablet, laptop) dan semua browser modern seperti Chrome, Firefox, Safari, dan Edge. Tidak perlu instal aplikasi tambahan, cukup buka website dan download!</p>
+                
+                <h3>💡 Tips Download TikTok:</h3>
+                <p>Untuk hasil terbaik, pastikan koneksi internet Anda stabil. Video akan tersimpan di folder "Downloads" perangkat Anda dengan format MP4. Jika ingin mengambil audio saja, gunakan fitur "Download Audio MP3" untuk mendapatkan file MP3 berkualitas tinggi.</p>
+                
+                <p><strong>TikTok Downloader Pro</strong> adalah solusi terbaik untuk menyimpan video favorit dari TikTok. Mulai dari video lucu, tutorial, musik, hingga konten inspiratif - semuanya bisa Anda simpan dengan mudah. Gratis, cepat, dan tanpa watermark!</p>
             </div>
             
             <div class="saras-credit">

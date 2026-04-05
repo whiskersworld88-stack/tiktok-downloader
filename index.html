@@ -189,7 +189,7 @@
             padding: 40px 35px;
         }
 
-        /* Ad Container - Glass Effect */
+        /* Ad Container - Style untuk ikbar 728x90 */
         .ad-container {
             background: rgba(255, 245, 250, 0.5);
             backdrop-filter: blur(8px);
@@ -209,6 +209,21 @@
             margin-bottom: 12px;
             display: block;
             font-weight: 700;
+        }
+
+        .ad-banner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 90px;
+        }
+        
+        /* Responsive untuk iklan */
+        @media (max-width: 768px) {
+            .ad-banner iframe {
+                transform: scale(0.9);
+                transform-origin: center;
+            }
         }
 
         /* Input Section - Glass Card */
@@ -681,13 +696,20 @@
         </div>
         
         <div class="content">
-            <!-- Iklan Banner -->
+            <!-- Iklan Banner Atas - Menggunakan script yang diberikan -->
             <div class="ad-container">
                 <span class="ad-label"><i class="fas fa-ad"></i> Advertisement</span>
-                <div class="ad-banner">
-                    <iframe src="https://www.profitablecpmratenetwork.com/sciqfik25?key=a3e666baeb0a60b76e2af95521b01897" 
-                            style="width: 100%; min-width: 280px; height: 250px; border: none; border-radius: 32px;">
-                    </iframe>
+                <div class="ad-banner" id="adTop">
+                    <script>
+                        atOptions = {
+                            'key' : '966c9c60500bc669b21a0e45dc8be5f5',
+                            'format' : 'iframe',
+                            'height' : 90,
+                            'width' : 728,
+                            'params' : {}
+                        };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/966c9c60500bc669b21a0e45dc8be5f5/invoke.js"></script>
                 </div>
             </div>
             
@@ -714,13 +736,20 @@
                 <div class="feature-card"><i class="fas fa-mobile-alt"></i><h4>Support Semua Link</h4><p>Video, live, short link</p></div>
             </div>
             
-            <!-- Iklan MIDDLE -->
+            <!-- Iklan Banner Tengah - Menggunakan script yang sama -->
             <div class="ad-container">
                 <span class="ad-label"><i class="fas fa-ad"></i> Advertisement</span>
-                <div class="ad-banner">
-                    <iframe src="https://www.profitablecpmratenetwork.com/sciqfik25?key=a3e666baeb0a60b76e2af95521b01897" 
-                            style="width: 100%; min-width: 280px; height: 250px; border: none; border-radius: 32px;">
-                    </iframe>
+                <div class="ad-banner" id="adMiddle">
+                    <script>
+                        atOptions = {
+                            'key' : '966c9c60500bc669b21a0e45dc8be5f5',
+                            'format' : 'iframe',
+                            'height' : 90,
+                            'width' : 728,
+                            'params' : {}
+                        };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/966c9c60500bc669b21a0e45dc8be5f5/invoke.js"></script>
                 </div>
             </div>
             

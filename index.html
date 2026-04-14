@@ -1338,49 +1338,101 @@
             }
         }
         
-        function renderTrendingVideos() {
-            const grid = document.getElementById('trendingGrid');
-            let filteredVideos = trendingVideos;
-            if (currentFilter !== 'all') filteredVideos = trendingVideos.filter(v => v.category === currentFilter);
-            if (filteredVideos.length === 0) {
-                grid.innerHTML = `<div class="trending-loading"><i class="fas fa-video-slash" style="font-size:35px;color:#ff6b9d;"></i><p>Tidak ada video untuk kategori ini</p></div>`;
-                return;
-            }
-            
-            grid.innerHTML = filteredVideos.map(video => `
-                <div class="trending-card" data-id="${video.id}">
-                    <div class="trending-thumbnail">
-                        <video muted preload="metadata">
-                            <source src="${video.videoUrl}" type="video/mp4">
-                        </video>
-                        <div class="trending-play-icon"><i class="fas fa-play"></i></div>
-                        <div class="trending-rank">#${video.rank}</div>
-                    </div>
-                    <div class="trending-info">
-                        <h4>${video.title}</h4>
-                        <div class="trending-meta">
-                            <span class="trending-author"><i class="fab fa-tiktok"></i> ${video.author}</span>
-                            <div class="trending-stats"><span><i class="fas fa-heart"></i> ${video.likes}</span></div>
-                        </div>
-                        <span class="trending-category"><i class="fas ${getCategoryIcon(video.category)}"></i> ${getCategoryName(video.category)}</span>
-                    </div>
+        // ============ PERBAIKAN TRENDING FUNCTIONS ============
+
+function renderTrendingVideos() {
+    const grid = document.getElementById('trendingGrid');
+    let filteredVideos = trendingVideos;
+    if (currentFilter !== 'all') filteredVideos = trendingVideos.filter(v => v.category === currentFilter);
+    if (filteredVideos.length === 0) {
+        grid.innerHTML = `<div class="trending-loading"><i class="fas fa-video-slash" style="font-size:35px;color:#ff6b9d;"></i><p>Tidak ada video untuk kategori ini</p></div>`;
+        return;
+    }
+    
+    grid.innerHTML = filteredVideos.map(video => `
+        <div class="trending-card" data-id="${video.id}">
+            <div class="trending-thumbnail">
+                <video muted loop preload="metadata" playsinline>
+                    <source src="${video.videoUrl}" type="video/mp4">
+                </video>
+                <div class="trending-play-icon"><i class="fas fa-play"></i></div>
+                <div class="trending-rank">#${video.rank}</div>
+            </div>
+            <div class="trending-info">
+                <h4>${video.title}</h4>
+                <div class="trending-meta">
+                    <span class="trending-author"><i class="fab fa-tiktok"></i> ${video.author}</span>
+                    <div class="trending-stats"><span><i class="fas fa-heart"></i> ${video.likes}</span></div>
                 </div>
-            `).join('');
-            
-            // Add event listeners
-            document.querySelectorAll('.trending-card').forEach(card => {
-                card.addEventListener('click', () => {
-                    const id = parseInt(card.dataset.id);
-                    const video = trendingVideos.find(v => v.id === id);
-                    if (video) openTrendingModal(video);
-                });
-                const video = card.querySelector('video');
-                if (video) {
-                    card.addEventListener('mouseenter', () => { video.currentTime = 0; video.play().catch(e => {}); });
-                    card.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
+                <span class="trending-category"><i class="fas ${getCategoryIcon(video.category)}"></i> ${getCategoryName(video.category)}</span>
+            </div>
+        </div>
+    `).join('');
+    
+    // PERBAIKAN: Event listener untuk auto-play video saat hover
+    document.querySelectorAll('.trending-card').forEach(card => {
+        const video = card.querySelector('video');
+        if (!video) return;
+        
+        // Klik card untuk buka modal
+        card.addEventListener('click', (e) => {
+            // Jangan buka modal jika yang diklik adalah video (untuk menghindari double trigger)
+            if (e.target === video || video.contains(e.target)) return;
+            const id = parseInt(card.dataset.id);
+            const videoData = trendingVideos.find(v => v.id === id);
+            if (videoData) openTrendingModal(videoData);
+        });
+        
+        // HOVER START - Auto play video (muted)
+        let hoverTimeout;
+        card.addEventListener('mouseenter', () => {
+            clearTimeout(hoverTimeout);
+            hoverTimeout = setTimeout(() => {
+                // Reset video ke awal
+                video.currentTime = 0;
+                // Play dengan muted (wajib untuk autoplay)
+                const playPromise = video.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => {
+                        console.log('Autoplay prevented:', error);
+                        // Fallback: tambahkan muted jika belum
+                        video.muted = true;
+                        video.play().catch(e => console.log('Still blocked'));
+                    });
                 }
-            });
-        }
+                // Tampilkan ikon play yang berdenyut
+                const playIcon = card.querySelector('.trending-play-icon');
+                if (playIcon) {
+                    playIcon.style.opacity = '0.5';
+                    playIcon.style.transform = 'translate(-50%, -50%) scale(1.1)';
+                }
+            }, 100);
+        });
+        
+        // HOVER END - Pause video dan reset
+        card.addEventListener('mouseleave', () => {
+            clearTimeout(hoverTimeout);
+            video.pause();
+            video.currentTime = 0;
+            const playIcon = card.querySelector('.trending-play-icon');
+            if (playIcon) {
+                playIcon.style.opacity = '0';
+                playIcon.style.transform = 'translate(-50%, -50%) scale(1)';
+            }
+        });
+        
+        // Klik pada video juga bisa play/pause
+        video.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (video.paused) {
+                video.muted = true;
+                video.play();
+            } else {
+                video.pause();
+            }
+        });
+    });
+}
         
         function openTrendingModal(video) {
             const modal = document.getElementById('trendingModal');

@@ -66,7 +66,7 @@
             pointer-events: none;
         }
 
-        /* Floating Glass Orbs - Lebih ringan */
+        /* Floating Glass Orbs */
         .glass-orb {
             position: fixed;
             border-radius: 50%;
@@ -171,7 +171,7 @@
             padding: 35px;
         }
 
-        /* Ad Container - Ringkas & Tidak Berlebihan */
+        /* Ad Container */
         .ad-container {
             background: rgba(255, 245, 250, 0.5);
             backdrop-filter: blur(8px);
@@ -453,7 +453,24 @@
             border: 1px solid rgba(255, 255, 255, 0.5);
         }
 
-        /* SEO Content Premium - Konten Kaya */
+        /* Sidebar ads */
+        .ad-sidebar {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 160px;
+            z-index: 20;
+            display: none;
+        }
+
+        @media (min-width: 1400px) {
+            .ad-sidebar {
+                display: block;
+            }
+        }
+
+        /* SEO Content */
         .seo-content {
             margin-top: 35px;
             background: rgba(255, 245, 250, 0.5);
@@ -498,7 +515,7 @@
             line-height: 1.5;
         }
 
-        /* FAQ Schema Section */
+        /* FAQ Section */
         .faq-section {
             margin-top: 30px;
             background: rgba(255, 245, 250, 0.6);
@@ -614,6 +631,24 @@
             color: transparent;
         }
 
+        /* Floating ad */
+        .floating-ad {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 20;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .floating-ad {
+                display: block;
+            }
+        }
+
         @media (max-width: 680px) {
             body { padding: 12px; }
             .container { border-radius: 40px; }
@@ -631,6 +666,12 @@
     <div class="glass-orb orb-1"></div>
     <div class="glass-orb orb-2"></div>
 
+    <!-- Iklan Floating (mobile) -->
+    <div class="floating-ad" id="floatingAd">
+        <div id="container-a0d67747a590a964583cde41657e7297"></div>
+        <button onclick="document.getElementById('floatingAd').style.display='none'" style="position:absolute; top:-10px; right:-10px; background:#ff6b9d; color:white; border:none; border-radius:50%; width:24px; height:24px; cursor:pointer;">×</button>
+    </div>
+
     <div class="container">
         <div class="header">
             <h1>
@@ -647,13 +688,11 @@
         </div>
         
         <div class="content">
-            <!-- Iklan Banner Atas - Hanya 1 -->
+            <!-- Iklan Banner Atas -->
             <div class="ad-container">
                 <span class="ad-label"><i class="fas fa-ad"></i> Advertisement</span>
                 <div class="ad-banner">
-                    <iframe src="https://www.profitablecpmratenetwork.com/ra25wya5j?key=2d6d8d2dd81679dd64d4ac2c3928c701" 
-                            width="728" height="90" style="max-width:100%; border:none; border-radius:20px;">
-                    </iframe>
+                    <script src="https://pl29065035.profitablecpmratenetwork.com/71/b7/71/71b77141bb8a48eb385ad6e42113d6da.js"></script>
                 </div>
             </div>
             
@@ -671,6 +710,15 @@
             <div class="download-buttons">
                 <button class="btn-download-video" id="downloadVideoBtn"><i class="fas fa-video"></i> Download Video</button>
                 <button class="btn-download-audio" id="downloadAudioBtn"><i class="fas fa-music"></i> Download Audio MP3</button>
+            </div>
+            
+            <!-- Iklan di tengah (inline) -->
+            <div class="ad-container">
+                <span class="ad-label"><i class="fas fa-ad"></i> Sponsored</span>
+                <div class="ad-banner">
+                    <script async="async" data-cfasync="false" src="https://pl29065033.profitablecpmratenetwork.com/a0d67747a590a964583cde41657e7297/invoke.js"></script>
+                    <div id="container-a0d67747a590a964583cde41657e7297"></div>
+                </div>
             </div>
             
             <div class="features">
@@ -708,7 +756,7 @@
                 </div>
             </div>
             
-            <!-- SEO CONTENT PREMIUM - KONTEN KAYA 1000+ KATA -->
+            <!-- SEO CONTENT PREMIUM -->
             <div class="seo-content">
                 <h2>TikTok Downloader Pro - Solusi Download Video TikTok Tanpa Watermark</h2>
                 <p>TikTok Downloader Pro adalah alat gratis terbaik untuk mengunduh video TikTok tanpa watermark. Dengan layanan kami, Anda dapat menyimpan video favorit dari TikTok langsung ke perangkat Anda dalam kualitas HD original, tanpa logo aplikasi yang mengganggu. Cukup tempel link video TikTok, pilih download video atau audio, dan file akan langsung tersimpan.</p>
@@ -751,7 +799,7 @@
                 <p>Untuk mendapatkan link video TikTok, buka aplikasi TikTok, pilih video yang ingin diunduh, klik ikon "Bagikan" (panah), lalu pilih "Salin tautan". Link akan tersimpan di clipboard Anda. Setelah itu, tempelkan di kotak input di atas dan klik tombol download.</p>
             </div>
             
-            <!-- FAQ SECTION DENGAN SCHEMA.ORG -->
+            <!-- FAQ SECTION -->
             <div class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
                 <h2>Pertanyaan Umum (FAQ) - TikTok Downloader</h2>
                 

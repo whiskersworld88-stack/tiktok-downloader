@@ -105,36 +105,6 @@
             padding: 35px 30px 25px;
             text-align: center;
             border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-            position: relative;
-        }
-
-        /* Language Switcher */
-        .lang-switch {
-            position: absolute;
-            top: 25px;
-            right: 30px;
-            display: flex;
-            gap: 12px;
-            background: rgba(255,255,240,0.5);
-            padding: 5px 12px;
-            border-radius: 40px;
-            backdrop-filter: blur(8px);
-        }
-        .lang-btn {
-            background: none;
-            border: none;
-            font-weight: 600;
-            cursor: pointer;
-            padding: 4px 12px;
-            border-radius: 30px;
-            transition: all 0.2s;
-            font-size: 13px;
-            color: #b84c72;
-        }
-        .lang-btn.active {
-            background: #ff6b9d;
-            color: white;
-            box-shadow: 0 2px 8px rgba(255,107,157,0.3);
         }
 
         .header h1 {
@@ -199,6 +169,38 @@
         /* Content */
         .content {
             padding: 35px;
+        }
+
+        /* Ad Container */
+        .ad-container {
+            background: rgba(255, 245, 250, 0.5);
+            backdrop-filter: blur(8px);
+            padding: 12px;
+            margin-bottom: 25px;
+            text-align: center;
+            border-radius: 40px;
+        }
+
+        .ad-label {
+            font-size: 10px;
+            color: #ff8aae;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .ad-banner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 90px;
+        }
+        
+        .ad-banner iframe {
+            max-width: 100%;
+            border-radius: 28px;
+            border: none;
         }
 
         /* Input Section */
@@ -451,6 +453,23 @@
             border: 1px solid rgba(255, 255, 255, 0.5);
         }
 
+        /* Sidebar ads */
+        .ad-sidebar {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 160px;
+            z-index: 20;
+            display: none;
+        }
+
+        @media (min-width: 1400px) {
+            .ad-sidebar {
+                display: block;
+            }
+        }
+
         /* SEO Content */
         .seo-content {
             margin-top: 35px;
@@ -612,12 +631,28 @@
             color: transparent;
         }
 
+        /* Floating ad */
+        .floating-ad {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 20;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .floating-ad {
+                display: block;
+            }
+        }
+
         @media (max-width: 680px) {
             body { padding: 12px; }
             .container { border-radius: 40px; }
             .header h1 { font-size: 28px; }
-            .lang-switch { top: 15px; right: 15px; gap: 5px; padding: 3px 8px; }
-            .lang-btn { padding: 2px 8px; font-size: 11px; }
             .content { padding: 20px; }
             .features { grid-template-columns: repeat(2, 1fr); }
             .download-buttons { flex-direction: column; }
@@ -627,50 +662,68 @@
     </style>
 </head>
 <body>
+    <!-- Glass Orbs -->
     <div class="glass-orb orb-1"></div>
     <div class="glass-orb orb-2"></div>
 
+    <!-- Iklan Floating (mobile) -->
+    <div class="floating-ad" id="floatingAd">
+        <div id="container-a0d67747a590a964583cde41657e7297"></div>
+        <button onclick="document.getElementById('floatingAd').style.display='none'" style="position:absolute; top:-10px; right:-10px; background:#ff6b9d; color:white; border:none; border-radius:50%; width:24px; height:24px; cursor:pointer;">×</button>
+    </div>
+
     <div class="container">
         <div class="header">
-            <div class="lang-switch">
-                <button class="lang-btn active" data-lang="id">🇮🇩 ID</button>
-                <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
-            </div>
             <h1>
                 <i class="fab fa-tiktok"></i>
-                <span data-key="title">TikTok Downloader Pro</span>
+                <span>TikTok Downloader Pro</span>
             </h1>
-            <div class="tagline" data-key="tagline">Unduh video TikTok tanpa watermark • Kualitas HD • Gratis</div>
+            <div class="tagline">Unduh video TikTok tanpa watermark • Kualitas HD • Gratis</div>
             <div class="badge-container">
-                <div class="badge"><i class="fas fa-bolt"></i> <span data-key="badge1">Cepat</span></div>
-                <div class="badge"><i class="fas fa-water"></i> <span data-key="badge2">No Watermark</span></div>
-                <div class="badge"><i class="fas fa-hd"></i> <span data-key="badge3">HD Quality</span></div>
-                <div class="badge"><i class="fas fa-music"></i> <span data-key="badge4">Audio MP3</span></div>
+                <div class="badge"><i class="fas fa-bolt"></i> Cepat</div>
+                <div class="badge"><i class="fas fa-water"></i> No Watermark</div>
+                <div class="badge"><i class="fas fa-hd"></i> HD Quality</div>
+                <div class="badge"><i class="fas fa-music"></i> Audio MP3</div>
             </div>
         </div>
         
         <div class="content">
+            <!-- Iklan Banner Atas -->
+            <div class="ad-container">
+                <span class="ad-label"><i class="fas fa-ad"></i> Advertisement</span>
+                <div class="ad-banner">
+<script>(function(s){s.dataset.zone='10900440',s.src='https://n6wxm.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>                </div>
+            </div>
+            
             <div class="input-section">
                 <div class="url-input-wrapper">
                     <i class="fab fa-tiktok"></i>
-                    <input type="text" id="videoUrl" data-key-placeholder="input_placeholder" placeholder="Tempel link TikTok di sini... contoh: https://vt.tiktok.com/xxxx" />
+                    <input type="text" id="videoUrl" placeholder="Tempel link TikTok di sini... contoh: https://vt.tiktok.com/xxxx" />
                 </div>
                 <div class="action-buttons">
-                    <button class="btn-secondary" id="pasteBtn"><i class="fas fa-paste"></i> <span data-key="paste_btn">Tempel</span></button>
-                    <button class="btn-secondary" id="clearBtn"><i class="fas fa-trash-alt"></i> <span data-key="clear_btn">Hapus</span></button>
+                    <button class="btn-secondary" id="pasteBtn"><i class="fas fa-paste"></i> Tempel</button>
+                    <button class="btn-secondary" id="clearBtn"><i class="fas fa-trash-alt"></i> Hapus</button>
                 </div>
             </div>
             
             <div class="download-buttons">
-                <button class="btn-download-video" id="downloadVideoBtn"><i class="fas fa-video"></i> <span data-key="download_video">Download Video</span></button>
-                <button class="btn-download-audio" id="downloadAudioBtn"><i class="fas fa-music"></i> <span data-key="download_audio">Download Audio MP3</span></button>
+                <button class="btn-download-video" id="downloadVideoBtn"><i class="fas fa-video"></i> Download Video</button>
+                <button class="btn-download-audio" id="downloadAudioBtn"><i class="fas fa-music"></i> Download Audio MP3</button>
+            </div>
+            
+            <!-- Iklan di tengah (inline) -->
+            <div class="ad-container">
+                <span class="ad-label"><i class="fas fa-ad"></i> Sponsored</span>
+                <div class="ad-banner">
+                    <div id="container-a0d67747a590a964583cde41657e7297"></div>
+                </div>
             </div>
             
             <div class="features">
-                <div class="feature-card"><i class="fas fa-water"></i><h3 data-key="feat1_title">Tanpa Watermark</h3><p data-key="feat1_desc">Video bersih tanpa logo</p></div>
-                <div class="feature-card"><i class="fas fa-music"></i><h3 data-key="feat2_title">Ekstrak Audio</h3><p data-key="feat2_desc">Download audio MP3</p></div>
-                <div class="feature-card"><i class="fas fa-history"></i><h3 data-key="feat3_title">Riwayat Download</h3><p data-key="feat3_desc">10 link tersimpan</p></div>
-                <div class="feature-card"><i class="fas fa-mobile-alt"></i><h3 data-key="feat4_title">Support Semua Link</h3><p data-key="feat4_desc">Video, live, short link</p></div>
+                <div class="feature-card"><i class="fas fa-water"></i><h3>Tanpa Watermark</h3><p>Video bersih tanpa logo</p></div>
+                <div class="feature-card"><i class="fas fa-music"></i><h3>Ekstrak Audio</h3><p>Download audio MP3</p></div>
+                <div class="feature-card"><i class="fas fa-history"></i><h3>Riwayat Download</h3><p>10 link tersimpan</p></div>
+                <div class="feature-card"><i class="fas fa-mobile-alt"></i><h3>Support Semua Link</h3><p>Video, live, short link</p></div>
             </div>
             
             <div class="result-section" id="resultSection">
@@ -688,20 +741,108 @@
             </div>
             
             <div class="tips-section">
-                <h4><i class="fas fa-lightbulb"></i> <span data-key="tips_title">Cara Penggunaan</span></h4>
-                <p data-key="tips_desc">1. Buka TikTok, pilih video → tap "Bagikan" → "Salin tautan"<br>2. Tempel link di atas → pilih "Download Video" atau "Download Audio MP3"<br>3. File akan langsung terdownload ke perangkat Anda!</p>
+                <h4><i class="fas fa-lightbulb"></i> Cara Penggunaan</h4>
+                <p>1. Buka TikTok, pilih video → tap "Bagikan" → "Salin tautan"<br>
+                2. Tempel link di atas → pilih "Download Video" atau "Download Audio MP3"<br>
+                3. File akan langsung terdownload ke perangkat Anda!</p>
             </div>
             
             <div class="history-section" id="historySection">
-                <div class="history-title"><i class="fas fa-history"></i> <span data-key="history_title">Riwayat Download</span></div>
+                <div class="history-title"><i class="fas fa-history"></i> Riwayat Download</div>
                 <div class="history-list" id="historyList">
-                    <div style="color: #d87a9a; text-align: center; width: 100%;" data-key="no_history">Belum ada riwayat</div>
+                    <div style="color: #d87a9a; text-align: center; width: 100%;">Belum ada riwayat</div>
                 </div>
             </div>
             
-            <!-- SEO Content Multibahasa (akan diupdate via JS) -->
-            <div class="seo-content" id="seoContent"></div>
-            <div class="faq-section" id="faqSection"></div>
+            <!-- SEO CONTENT PREMIUM -->
+            <div class="seo-content">
+                <h2>TikTok Downloader Pro - Solusi Download Video TikTok Tanpa Watermark</h2>
+                <p>TikTok Downloader Pro adalah alat gratis terbaik untuk mengunduh video TikTok tanpa watermark. Dengan layanan kami, Anda dapat menyimpan video favorit dari TikTok langsung ke perangkat Anda dalam kualitas HD original, tanpa logo aplikasi yang mengganggu. Cukup tempel link video TikTok, pilih download video atau audio, dan file akan langsung tersimpan.</p>
+                
+                <h2>Mengapa Harus Download Video TikTok Tanpa Watermark?</h2>
+                <p>Video TikTok yang diunduh langsung dari aplikasi biasanya menyisakan watermark "TikTok" yang bisa mengganggu estetika, terutama jika Anda ingin menggunakannya untuk keperluan edit ulang, kompilasi konten, atau sekadar koleksi pribadi. Dengan TikTok Downloader Pro, Anda mendapatkan video bersih tanpa watermark sehingga lebih fleksibel digunakan.</p>
+                
+                <h3>Keunggulan TikTok Downloader Pro Dibanding Situs Lain</h3>
+                <ul>
+                    <li><strong>✅ Tanpa Watermark Asli</strong> - Bukan hasil crop atau potong pinggiran, video tetap full tanpa logo</li>
+                    <li><strong>✅ Download Audio MP3</strong> - Ekstrak musik dari video TikTok dengan kualitas terbaik</li>
+                    <li><strong>✅ Kualitas HD Original</strong> - Tidak ada penurunan kualitas, video tetap jernih</li>
+                    <li><strong>✅ Gratis Tanpa Registrasi</strong> - Langsung download tanpa perlu login atau bayar</li>
+                    <li><strong>✅ Cepat & Mudah</strong> - Proses hanya beberapa detik, interface user-friendly</li>
+                    <li><strong>✅ Support Semua Link</strong> - Bisa untuk video biasa, live streaming, hingga short link</li>
+                </ul>
+                
+                <h2>10 Ide Konten yang Bisa Kamu Download dari TikTok</h2>
+                <p>TikTok menyimpan jutaan konten kreatif setiap harinya. Berikut ide konten yang menarik untuk diunduh:</p>
+                <ol>
+                    <li>Video tutorial masak atau DIY craft</li>
+                    <li>Konten edukasi dan tips belajar</li>
+                    <li>Hiburan komedi dan sketsa lucu</li>
+                    <li>Video viral challenge terbaru</li>
+                    <li>Konten motivasi dan inspirasi</li>
+                    <li>Tari-tarian keren untuk referensi</li>
+                    <li>Video hewan lucu dan menggemaskan</li>
+                    <li>Kutipan kata-kata bijak dengan background aesthetic</li>
+                    <li>Konten olahraga dan workout</li>
+                    <li>Video perjalanan dan wisata</li>
+                </ol>
+                
+                <h2>Perbandingan TikTok Downloader Pro dengan Aplikasi Lain</h2>
+                <p>Banyak aplikasi downloader TikTok bertebaran, tapi tidak semua memberikan hasil terbaik. TikTok Downloader Pro hadir dengan keunggulan: tidak perlu instalasi aplikasi (cukup browser), tidak ada iklan pop-up mengganggu, dan yang terpenting video benar-benar tanpa watermark. Berbeda dengan beberapa situs lain yang masih menyisakan logo atau justru menurunkan kualitas video.</p>
+                
+                <h2>Apakah Aman Menggunakan TikTok Downloader Pro?</h2>
+                <p>Ya, sangat aman. TikTok Downloader Pro tidak meminta data pribadi, tidak perlu login akun TikTok, dan tidak menyimpan riwayat download Anda di server. Semua proses dilakukan secara real-time melalui API resmi. Privasi Anda adalah prioritas kami.</p>
+                
+                <h2>Cara Mendapatkan Link Video TikTok</h2>
+                <p>Untuk mendapatkan link video TikTok, buka aplikasi TikTok, pilih video yang ingin diunduh, klik ikon "Bagikan" (panah), lalu pilih "Salin tautan". Link akan tersimpan di clipboard Anda. Setelah itu, tempelkan di kotak input di atas dan klik tombol download.</p>
+            </div>
+            
+            <!-- FAQ SECTION -->
+            <div class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
+                <h2>Pertanyaan Umum (FAQ) - TikTok Downloader</h2>
+                
+                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name"><i class="fas fa-question-circle"></i> Apakah download video TikTok tanpa watermark legal?</h3>
+                    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <div itemprop="text"><p>Download untuk penggunaan pribadi umumnya diperbolehkan. Namun kami tidak menyarankan untuk mengunggah ulang konten orang lain tanpa izin, karena bisa melanggar hak cipta.</p></div>
+                    </div>
+                </div>
+                
+                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name"><i class="fas fa-question-circle"></i> Berapa maksimal ukuran video yang bisa didownload?</h3>
+                    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <div itemprop="text"><p>Tidak ada batasan ukuran. Semua video TikTok bisa diunduh dengan kualitas aslinya, biasanya antara 5MB hingga 50MB tergantung durasi.</p></div>
+                    </div>
+                </div>
+                
+                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name"><i class="fas fa-question-circle"></i> Apakah harus registrasi atau bayar?</h3>
+                    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <div itemprop="text"><p>Tidak perlu registrasi dan GRATIS selamanya. Tidak ada biaya tersembunyi.</p></div>
+                    </div>
+                </div>
+                
+                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name"><i class="fas fa-question-circle"></i> Bisa download video TikTok yang diprivate?</h3>
+                    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <div itemprop="text"><p>Tidak bisa. Hanya video publik yang dapat diunduh. Video yang diprivate atau dihapus tidak bisa diakses.</p></div>
+                    </div>
+                </div>
+                
+                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name"><i class="fas fa-question-circle"></i> Ap tersedia versi mobile app?</h3>
+                    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <div itemprop="text"><p>Saat ini kami hanya menyediakan versi web yang sudah mobile-friendly. Cukup akses melalui browser HP, tampilan sudah responsif.</p></div>
+                    </div>
+                </div>
+                
+                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <h3 itemprop="name"><i class="fas fa-question-circle"></i> Bagaimana jika tombol download tidak merespon?</h3>
+                    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <div itemprop="text"><p>Coba periksa koneksi internet Anda, pastikan link TikTok valid, atau refresh halaman. Jika masih bermasalah, hubungi kami melalui kontak yang tersedia.</p></div>
+                    </div>
+                </div>
+            </div>
             
             <div class="saras-credit">
                 <p>✨ by Saras Cantik ✨</p>
@@ -723,77 +864,6 @@
     </div>
 
     <script>
-        // ======================= MULTI LANGUAGE DATA =======================
-        const translations = {
-            id: {
-                title: "TikTok Downloader Pro",
-                tagline: "Unduh video TikTok tanpa watermark • Kualitas HD • Gratis",
-                badge1: "Cepat", badge2: "No Watermark", badge3: "HD Quality", badge4: "Audio MP3",
-                input_placeholder: "Tempel link TikTok di sini... contoh: https://vt.tiktok.com/xxxx",
-                paste_btn: "Tempel", clear_btn: "Hapus",
-                download_video: "Download Video", download_audio: "Download Audio MP3",
-                feat1_title: "Tanpa Watermark", feat1_desc: "Video bersih tanpa logo",
-                feat2_title: "Ekstrak Audio", feat2_desc: "Download audio MP3",
-                feat3_title: "Riwayat Download", feat3_desc: "10 link tersimpan",
-                feat4_title: "Support Semua Link", feat4_desc: "Video, live, short link",
-                tips_title: "Cara Penggunaan",
-                tips_desc: "1. Buka TikTok, pilih video → tap \"Bagikan\" → \"Salin tautan\"\n2. Tempel link di atas → pilih \"Download Video\" atau \"Download Audio MP3\"\n3. File akan langsung terdownload ke perangkat Anda!",
-                history_title: "Riwayat Download",
-                no_history: "Belum ada riwayat",
-                loading_text: "Memproses video...",
-                loading_detail: "Mengambil data dari server",
-                seo_html: `<h2>TikTok Downloader Pro - Solusi Download Video TikTok Tanpa Watermark</h2><p>TikTok Downloader Pro adalah alat gratis terbaik untuk mengunduh video TikTok tanpa watermark. Dengan layanan kami, Anda dapat menyimpan video favorit dari TikTok langsung ke perangkat Anda dalam kualitas HD original, tanpa logo aplikasi yang mengganggu. Cukup tempel link video TikTok, pilih download video atau audio, dan file akan langsung tersimpan.</p><h2>Keunggulan TikTok Downloader Pro</h2><ul><li>✅ Tanpa Watermark Asli</li><li>✅ Download Audio MP3</li><li>✅ Kualitas HD Original</li><li>✅ Gratis Tanpa Registrasi</li><li>✅ Cepat & Mudah</li></ul>`,
-                faq_html: `<h2>Pertanyaan Umum (FAQ)</h2><div class="faq-item"><h3><i class="fas fa-question-circle"></i> Apakah download video TikTok tanpa watermark legal?</h3><p>Download untuk penggunaan pribadi diperbolehkan.</p></div><div class="faq-item"><h3><i class="fas fa-question-circle"></i> Apakah harus registrasi atau bayar?</h3><p>Tidak perlu registrasi dan GRATIS selamanya.</p></div><div class="faq-item"><h3><i class="fas fa-question-circle"></i> Bisa download video yang diprivate?</h3><p>Tidak bisa. Hanya video publik.</p></div>`
-            },
-            en: {
-                title: "TikTok Downloader Pro",
-                tagline: "Download TikTok videos without watermark • HD Quality • Free",
-                badge1: "Fast", badge2: "No Watermark", badge3: "HD Quality", badge4: "MP3 Audio",
-                input_placeholder: "Paste TikTok link here... e.g: https://vt.tiktok.com/xxxx",
-                paste_btn: "Paste", clear_btn: "Clear",
-                download_video: "Download Video", download_audio: "Download MP3 Audio",
-                feat1_title: "No Watermark", feat1_desc: "Clean video without logo",
-                feat2_title: "Extract Audio", feat2_desc: "Download MP3 audio",
-                feat3_title: "Download History", feat3_desc: "10 saved links",
-                feat4_title: "All Links Support", feat4_desc: "Video, live, short link",
-                tips_title: "How to Use",
-                tips_desc: "1. Open TikTok, select video → tap 'Share' → 'Copy link'\n2. Paste the link above → choose 'Download Video' or 'Download MP3 Audio'\n3. File will be downloaded directly to your device!",
-                history_title: "Download History",
-                no_history: "No history yet",
-                loading_text: "Processing video...",
-                loading_detail: "Fetching data from server",
-                seo_html: `<h2>TikTok Downloader Pro - Best No Watermark TikTok Video Downloader</h2><p>TikTok Downloader Pro is the best free tool to download TikTok videos without watermark. Save your favorite TikTok videos in original HD quality. Just paste the link and download video or audio instantly.</p><h2>Why Choose TikTok Downloader Pro</h2><ul><li>✅ No Watermark</li><li>✅ MP3 Audio Download</li><li>✅ Original HD Quality</li><li>✅ Free No Registration</li><li>✅ Fast & Easy</li></ul>`,
-                faq_html: `<h2>Frequently Asked Questions (FAQ)</h2><div class="faq-item"><h3><i class="fas fa-question-circle"></i> Is downloading TikTok videos without watermark legal?</h3><p>Personal use is generally allowed.</p></div><div class="faq-item"><h3><i class="fas fa-question-circle"></i> Do I need to register or pay?</h3><p>No registration needed and it's completely FREE.</p></div><div class="faq-item"><h3><i class="fas fa-question-circle"></i> Can I download private videos?</h3><p>No. Only public videos can be downloaded.</p></div>`
-            }
-        };
-
-        let currentLang = 'id';
-        function applyLanguage(lang) {
-            currentLang = lang;
-            const t = translations[lang];
-            document.querySelectorAll('[data-key]').forEach(el => {
-                const key = el.getAttribute('data-key');
-                if (t[key]) el.innerText = t[key];
-            });
-            document.querySelectorAll('[data-key-placeholder]').forEach(el => {
-                const key = el.getAttribute('data-key-placeholder');
-                if (t[key]) el.placeholder = t[key];
-            });
-            document.getElementById('loadingText').innerText = t.loading_text;
-            document.getElementById('loadingDetail').innerText = t.loading_detail;
-            document.getElementById('seoContent').innerHTML = t.seo_html;
-            document.getElementById('faqSection').innerHTML = t.faq_html;
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                if (btn.getAttribute('data-lang') === lang) btn.classList.add('active');
-                else btn.classList.remove('active');
-            });
-        }
-
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.addEventListener('click', () => applyLanguage(btn.getAttribute('data-lang')));
-        });
-        
-        // ======================= CORE LOGIC =======================
         let currentVideoData = null;
         let downloadHistory = [];
         let isProcessing = false;
@@ -803,10 +873,12 @@
             const saved = localStorage.getItem('tiktok_download_history');
             if (saved) { downloadHistory = JSON.parse(saved); renderHistory(); }
         }
+        
         function saveHistory() { 
             localStorage.setItem('tiktok_download_history', JSON.stringify(downloadHistory.slice(0, 10))); 
             renderHistory(); 
         }
+        
         function addToHistory(url, title, author) {
             if (!downloadHistory.find(item => item.url === url)) {
                 downloadHistory.unshift({ url, title: title.length > 35 ? title.substring(0,35)+'...' : title, author, date: new Date().toISOString() });
@@ -814,21 +886,21 @@
                 saveHistory();
             }
         }
+        
         function renderHistory() {
             const historyList = document.getElementById('historyList');
             if (downloadHistory.length === 0) { 
-                historyList.innerHTML = `<div style="color:#d87a9a;text-align:center;width:100%;" data-key="no_history">${translations[currentLang].no_history}</div>`;
-                if(currentLang === 'en') historyList.innerHTML = `<div style="color:#d87a9a;text-align:center;width:100%;">No history yet</div>`;
+                historyList.innerHTML = '<div style="color:#d87a9a;text-align:center;width:100%;">Belum ada riwayat</div>'; 
                 return; 
             }
             historyList.innerHTML = downloadHistory.map(item => 
-                `<div class="history-item" onclick="window.useHistoryUrl('${item.url.replace(/'/g, "\\'")}')"><i class="fab fa-tiktok"></i> ${item.title}</div>`
+                `<div class="history-item" onclick="useHistoryUrl('${item.url.replace(/'/g, "\\'")}')"><i class="fab fa-tiktok"></i> ${item.title}</div>`
             ).join('');
         }
         
         window.useHistoryUrl = function(url) { 
             document.getElementById('videoUrl').value = url; 
-            showToast(translations[currentLang].paste_btn + ' OK', 'success'); 
+            showToast('URL dari riwayat digunakan', 'success'); 
             processVideoAndDownload('video'); 
         };
         
@@ -844,11 +916,12 @@
             setTimeout(() => toast.classList.remove('show'), 3000);
         }
         
-        function showLoading(text, detail) { 
+        function showLoading(text='Memproses video...', detail='Mengambil data dari server') { 
             document.getElementById('loadingText').textContent = text; 
             document.getElementById('loadingDetail').textContent = detail; 
             document.getElementById('loadingOverlay').style.display = 'flex'; 
         }
+        
         function hideLoading() { document.getElementById('loadingOverlay').style.display = 'none'; }
         
         function cleanUrl(url) { 
@@ -856,12 +929,14 @@
             if (!url.startsWith('http')) url = 'https://' + url; 
             return url.split('?')[0]; 
         }
+        
         function formatDuration(seconds) { 
             if (!seconds) return '--:--'; 
             const mins = Math.floor(seconds / 60); 
             const secs = Math.floor(seconds % 60); 
             return `${mins}:${secs.toString().padStart(2,'0')}`; 
         }
+        
         function formatNumber(num) { 
             if (!num) return '--'; 
             if (num>=1000000) return (num/1000000).toFixed(1)+'M'; 
@@ -884,9 +959,9 @@
                         audioUrl: data.data.music || null 
                     }; 
                 }
-                return { success: false, error: translations[currentLang]?.error_fetch || 'Failed to fetch video. Check your link.' };
+                return { success: false, error: 'Gagal mengambil video. Periksa link TikTok Anda.' };
             } catch(e) {
-                return { success: false, error: 'Connection error. Try again.' };
+                return { success: false, error: 'Koneksi gagal. Coba lagi nanti.' };
             }
         }
         
@@ -909,20 +984,23 @@
         }
         
         async function processVideoAndDownload(type) {
-            if (isProcessing) { showToast('Processing...', 'info'); return; }
+            if (isProcessing) { showToast('Sedang memproses...', 'info'); return; }
             let url = document.getElementById('videoUrl').value.trim();
-            if (!url) { showToast('Enter TikTok link!', 'error'); return; }
+            if (!url) { showToast('Masukkan link TikTok!', 'error'); return; }
             url = cleanUrl(url);
-            if (!url.includes('tiktok.com')) { showToast('Invalid TikTok URL!', 'error'); return; }
+            if (!url.includes('tiktok.com')) { showToast('URL tidak valid!', 'error'); return; }
             
             isProcessing = true;
             const videoBtn = document.getElementById('downloadVideoBtn');
             const audioBtn = document.getElementById('downloadAudioBtn');
-            videoBtn.disabled = true; audioBtn.disabled = true;
-            if (type === 'video') videoBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Processing...';
-            else audioBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Processing...';
+            videoBtn.disabled = true; 
+            audioBtn.disabled = true;
             
-            showLoading(translations[currentLang].loading_text, translations[currentLang].loading_detail);
+            if (type === 'video') videoBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Memproses...';
+            else audioBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Memproses...';
+            
+            showLoading('Mengambil video...', 'Menghubungi server TikTok');
+            
             try {
                 const result = await getVideoData(url);
                 if (result.success) {
@@ -940,27 +1018,42 @@
                     if (type === 'video') { 
                         downloadUrl = result.videoUrl; 
                         filename = `${result.title.replace(/[^a-z0-9]/gi, '_').substring(0, 50)}.mp4`; 
+                        showLoading('Mengunduh video...', 'Proses download akan segera dimulai');
                     } else { 
                         if (result.audioUrl) { 
                             downloadUrl = result.audioUrl; 
                             filename = `${result.title.replace(/[^a-z0-9]/gi, '_').substring(0, 50)}.mp3`; 
+                            showLoading('Mengunduh audio...', 'Proses download akan segera dimulai');
                         } else { 
-                            hideLoading(); showToast('Audio not available.', 'error'); 
-                            isProcessing=false; videoBtn.disabled=false; audioBtn.disabled=false; 
+                            hideLoading(); 
+                            showToast('Audio tidak tersedia untuk video ini.', 'error'); 
+                            isProcessing=false; 
+                            videoBtn.disabled=false; 
+                            audioBtn.disabled=false; 
                             videoBtn.innerHTML='<i class="fas fa-video"></i> Download Video'; 
                             audioBtn.innerHTML='<i class="fas fa-music"></i> Download Audio MP3'; 
                             return; 
                         } 
                     }
+                    
                     const success = await forceDownload(downloadUrl, filename);
                     hideLoading();
-                    if (success) showToast(`✅ Download started!`, 'success');
-                    else { window.open(downloadUrl, '_blank'); showToast(`⚠️ Auto download failed, new tab opened`, 'info'); }
-                } else { hideLoading(); showToast(result.error, 'error'); }
-            } catch(e) { hideLoading(); showToast('Error occurred, try again', 'error'); } 
-            finally { 
+                    if (success) showToast(`✅ Download ${type==='video'?'video':'audio'} dimulai!`, 'success');
+                    else { 
+                        window.open(downloadUrl, '_blank'); 
+                        showToast(`⚠️ Download otomatis gagal, buka tab baru`, 'info'); 
+                    }
+                } else { 
+                    hideLoading(); 
+                    showToast(result.error, 'error'); 
+                }
+            } catch(e) { 
+                hideLoading(); 
+                showToast('Terjadi kesalahan, coba lagi', 'error'); 
+            } finally { 
                 isProcessing=false; 
-                videoBtn.disabled=false; audioBtn.disabled=false; 
+                videoBtn.disabled=false; 
+                audioBtn.disabled=false; 
                 videoBtn.innerHTML='<i class="fas fa-video"></i> Download Video'; 
                 audioBtn.innerHTML='<i class="fas fa-music"></i> Download Audio MP3'; 
             }
@@ -968,25 +1061,31 @@
         
         document.getElementById('downloadVideoBtn').addEventListener('click', () => processVideoAndDownload('video'));
         document.getElementById('downloadAudioBtn').addEventListener('click', () => processVideoAndDownload('audio'));
+        
         document.getElementById('pasteBtn').addEventListener('click', async () => { 
             try { 
                 const text = await navigator.clipboard.readText(); 
                 if(text.includes('tiktok.com')) { 
                     document.getElementById('videoUrl').value = text; 
-                    showToast('Link pasted!','success'); 
-                } else showToast('No TikTok link in clipboard','info'); 
-            } catch(e){ showToast('Cannot read clipboard. Paste manually (Ctrl+V)','error'); } 
+                    showToast('Link ditempel!','success'); 
+                } else showToast('Tidak ada link TikTok di clipboard','info'); 
+            } catch(e){ 
+                showToast('Gagal membaca clipboard. Tempel manual (Ctrl+V)','error'); 
+            } 
         });
+        
         document.getElementById('clearBtn').addEventListener('click', () => { 
             document.getElementById('videoUrl').value = ''; 
             document.getElementById('resultSection').style.display = 'none'; 
-            showToast('Cleared','info'); 
+            showToast('Form dibersihkan','info'); 
         });
-        document.getElementById('videoUrl').addEventListener('keypress', (e) => { if(e.key === 'Enter') processVideoAndDownload('video'); });
+        
+        document.getElementById('videoUrl').addEventListener('keypress', (e) => { 
+            if(e.key === 'Enter') processVideoAndDownload('video'); 
+        });
         
         loadHistory();
-        applyLanguage('id');
     </script>
-    <script>(function(s){s.dataset.zone='10900440',s.src='https://n6wxm.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
-<script>(function(s){s.dataset.zone='10900440',s.src='https://n6wxm.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script></body>
+    <script src="https://5gvci.com/act/files/tag.min.js?z=10900423" data-cfasync="false" async></script>
+</body>
 </html>

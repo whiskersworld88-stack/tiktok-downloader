@@ -699,7 +699,7 @@
                 </div>
             </div>
             
-            <!-- SEO Content Multibahasa -->
+            <!-- SEO Content Multibahasa (akan diupdate via JS) -->
             <div class="seo-content" id="seoContent"></div>
             <div class="faq-section" id="faqSection"></div>
             
@@ -721,34 +721,6 @@
         <i class="fas fa-check-circle"></i>
         <span id="toastMessage"></span>
     </div>
-
-    <!-- In-Page Push & Vignette Ads (Trigger saat klik download) -->
-    <script>
-        // Fungsi untuk memuat semua iklan trigger (In-Page Push + Vignette)
-        function loadTriggerAds() {
-            try {
-                // In-Page Push (zone 10900398)
-                var inPageScript = document.createElement('script');
-                inPageScript.dataset.zone = '10900398';
-                inPageScript.src = 'https://nap5k.com/tag.min.js';
-                document.body.appendChild(inPageScript);
-                
-                // Vignette Ad (zone 10900440)
-                var vignetteScript = document.createElement('script');
-                vignetteScript.dataset.zone = '10900440';
-                vignetteScript.src = 'https://n6wxm.com/vignette.min.js';
-                document.body.appendChild(vignetteScript);
-            } catch(e) { console.warn("Ad trigger error:", e); }
-        }
-        
-        // Fungsi khusus Vignette (opsional sesuai request)
-        function loadVignetteAd() {
-            var s = document.createElement('script');
-            s.src = "https://5gvci.com/act/files/tag.min.js?z=10900423";
-            s.async = true;
-            document.body.appendChild(s);
-        }
-    </script>
 
     <script>
         // ======================= MULTI LANGUAGE DATA =======================
@@ -821,7 +793,7 @@
             btn.addEventListener('click', () => applyLanguage(btn.getAttribute('data-lang')));
         });
         
-        // ======================= CORE LOGIC (TikTok Downloader) =======================
+        // ======================= CORE LOGIC =======================
         let currentVideoData = null;
         let downloadHistory = [];
         let isProcessing = false;
@@ -845,7 +817,8 @@
         function renderHistory() {
             const historyList = document.getElementById('historyList');
             if (downloadHistory.length === 0) { 
-                historyList.innerHTML = `<div style="color:#d87a9a;text-align:center;width:100%;">${translations[currentLang].no_history}</div>`;
+                historyList.innerHTML = `<div style="color:#d87a9a;text-align:center;width:100%;" data-key="no_history">${translations[currentLang].no_history}</div>`;
+                if(currentLang === 'en') historyList.innerHTML = `<div style="color:#d87a9a;text-align:center;width:100%;">No history yet</div>`;
                 return; 
             }
             historyList.innerHTML = downloadHistory.map(item => 
@@ -911,9 +884,9 @@
                         audioUrl: data.data.music || null 
                     }; 
                 }
-                return { success: false, error: 'Gagal mengambil video. Periksa link TikTok Anda.' };
+                return { success: false, error: translations[currentLang]?.error_fetch || 'Failed to fetch video. Check your link.' };
             } catch(e) {
-                return { success: false, error: 'Koneksi gagal. Coba lagi nanti.' };
+                return { success: false, error: 'Connection error. Try again.' };
             }
         }
         
@@ -936,22 +909,18 @@
         }
         
         async function processVideoAndDownload(type) {
-            if (isProcessing) { showToast('Sedang memproses...', 'info'); return; }
+            if (isProcessing) { showToast('Processing...', 'info'); return; }
             let url = document.getElementById('videoUrl').value.trim();
-            if (!url) { showToast('Masukkan link TikTok!', 'error'); return; }
+            if (!url) { showToast('Enter TikTok link!', 'error'); return; }
             url = cleanUrl(url);
-            if (!url.includes('tiktok.com')) { showToast('URL tidak valid!', 'error'); return; }
-            
-            // === TRIGGER IKLAN SAAT KLIK DOWNLOAD ===
-            loadTriggerAds();    // In-Page Push + Vignette
-            loadVignetteAd();    // Tambahan vignette dari 5gvci.com sesuai request
+            if (!url.includes('tiktok.com')) { showToast('Invalid TikTok URL!', 'error'); return; }
             
             isProcessing = true;
             const videoBtn = document.getElementById('downloadVideoBtn');
             const audioBtn = document.getElementById('downloadAudioBtn');
             videoBtn.disabled = true; audioBtn.disabled = true;
-            if (type === 'video') videoBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Memproses...';
-            else audioBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Memproses...';
+            if (type === 'video') videoBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Processing...';
+            else audioBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Processing...';
             
             showLoading(translations[currentLang].loading_text, translations[currentLang].loading_detail);
             try {
@@ -976,7 +945,7 @@
                             downloadUrl = result.audioUrl; 
                             filename = `${result.title.replace(/[^a-z0-9]/gi, '_').substring(0, 50)}.mp3`; 
                         } else { 
-                            hideLoading(); showToast('Audio tidak tersedia.', 'error'); 
+                            hideLoading(); showToast('Audio not available.', 'error'); 
                             isProcessing=false; videoBtn.disabled=false; audioBtn.disabled=false; 
                             videoBtn.innerHTML='<i class="fas fa-video"></i> Download Video'; 
                             audioBtn.innerHTML='<i class="fas fa-music"></i> Download Audio MP3'; 
@@ -985,10 +954,10 @@
                     }
                     const success = await forceDownload(downloadUrl, filename);
                     hideLoading();
-                    if (success) showToast(`✅ Download dimulai!`, 'success');
-                    else { window.open(downloadUrl, '_blank'); showToast(`⚠️ Gagal auto download, buka tab baru`, 'info'); }
+                    if (success) showToast(`✅ Download started!`, 'success');
+                    else { window.open(downloadUrl, '_blank'); showToast(`⚠️ Auto download failed, new tab opened`, 'info'); }
                 } else { hideLoading(); showToast(result.error, 'error'); }
-            } catch(e) { hideLoading(); showToast('Terjadi kesalahan, coba lagi', 'error'); } 
+            } catch(e) { hideLoading(); showToast('Error occurred, try again', 'error'); } 
             finally { 
                 isProcessing=false; 
                 videoBtn.disabled=false; audioBtn.disabled=false; 
@@ -1004,19 +973,19 @@
                 const text = await navigator.clipboard.readText(); 
                 if(text.includes('tiktok.com')) { 
                     document.getElementById('videoUrl').value = text; 
-                    showToast('Link ditempel!','success'); 
-                } else showToast('Tidak ada link TikTok di clipboard','info'); 
-            } catch(e){ showToast('Gagal membaca clipboard. Tempel manual (Ctrl+V)','error'); } 
+                    showToast('Link pasted!','success'); 
+                } else showToast('No TikTok link in clipboard','info'); 
+            } catch(e){ showToast('Cannot read clipboard. Paste manually (Ctrl+V)','error'); } 
         });
         document.getElementById('clearBtn').addEventListener('click', () => { 
             document.getElementById('videoUrl').value = ''; 
             document.getElementById('resultSection').style.display = 'none'; 
-            showToast('Form dibersihkan','info'); 
+            showToast('Cleared','info'); 
         });
         document.getElementById('videoUrl').addEventListener('keypress', (e) => { if(e.key === 'Enter') processVideoAndDownload('video'); });
         
         loadHistory();
         applyLanguage('id');
     </script>
-</body>
+<script>(function(s){s.dataset.zone='10900440',s.src='https://n6wxm.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script></body>
 </html>

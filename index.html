@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>TikTok Downloader Pro - Download Video TikTok Tanpa Watermark Gratis HD</title>
     
-    <!-- Meta Tag SEO Premium -->
     <meta name="description" content="TikTok Downloader Pro - Download video TikTok tanpa watermark kualitas HD gratis. Support video & audio MP3. Cepat, mudah, tanpa registrasi. By Saras Cantik">
     <meta name="keywords" content="tiktok downloader, download video tiktok, tiktok tanpa watermark, download tiktok mp3, tiktok video downloader, ttdownloader">
     <meta name="author" content="Saras Cantik">
@@ -14,22 +13,18 @@
     <meta name="language" content="Indonesian">
     <meta name="revisit-after" content="1 days">
     
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://tiktokdl.my.id/">
     
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tiktokdl.my.id/">
     <meta property="og:title" content="TikTok Downloader Pro - Download Video TikTok Tanpa Watermark">
     <meta property="og:description" content="Download video TikTok tanpa watermark gratis. Kualitas HD, support audio MP3. Tanpa registrasi!">
     <meta property="og:image" content="https://tiktokdl.my.id/og-image.jpg">
     
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="TikTok Downloader Pro">
     <meta name="twitter:description" content="Download video TikTok tanpa watermark gratis, kualitas HD">
     
-    <!-- Font Awesome & Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -51,7 +46,6 @@
             overflow-x: hidden;
         }
 
-        /* Glassmorphism Background Elements */
         body::before {
             content: '';
             position: fixed;
@@ -66,7 +60,6 @@
             pointer-events: none;
         }
 
-        /* Floating Glass Orbs */
         .glass-orb {
             position: fixed;
             border-radius: 50%;
@@ -86,7 +79,6 @@
             66% { transform: translate(-20px, 25px) scale(0.98); }
         }
 
-        /* Main Container */
         .container {
             position: relative;
             z-index: 10;
@@ -99,7 +91,6 @@
             overflow: hidden;
         }
 
-        /* Header */
         .header {
             background: linear-gradient(135deg, rgba(255, 240, 245, 0.7), rgba(255, 220, 235, 0.5));
             padding: 35px 30px 25px;
@@ -143,7 +134,6 @@
             border-radius: 40px;
         }
 
-        /* Badge Container */
         .badge-container {
             display: flex;
             justify-content: center;
@@ -166,19 +156,19 @@
             border: 1px solid rgba(255, 255, 255, 0.5);
         }
 
-        /* Content */
         .content {
             padding: 35px;
         }
 
-        /* Ad Container */
         .ad-container {
-            background: rgba(255, 245, 250, 0.5);
-            backdrop-filter: blur(8px);
+            background: rgba(255, 245, 250, 0.6);
+            backdrop-filter: blur(12px);
             padding: 12px;
             margin-bottom: 25px;
             text-align: center;
-            border-radius: 40px;
+            border-radius: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            min-height: 130px;
         }
 
         .ad-label {
@@ -188,6 +178,7 @@
             letter-spacing: 2px;
             margin-bottom: 8px;
             display: block;
+            font-weight: 600;
         }
 
         .ad-banner {
@@ -196,14 +187,7 @@
             align-items: center;
             min-height: 90px;
         }
-        
-        .ad-banner iframe {
-            max-width: 100%;
-            border-radius: 28px;
-            border: none;
-        }
 
-        /* Input Section */
         .input-section {
             background: rgba(255, 245, 250, 0.55);
             backdrop-filter: blur(12px);
@@ -275,11 +259,8 @@
             justify-content: center;
         }
 
-        .btn-secondary:active {
-            transform: scale(0.97);
-        }
+        .btn-secondary:active { transform: scale(0.97); }
 
-        /* Download Buttons */
         .download-buttons {
             display: flex;
             gap: 18px;
@@ -301,8 +282,6 @@
             align-items: center;
             justify-content: center;
             gap: 12px;
-            position: relative;
-            overflow: hidden;
         }
 
         .btn-download-video {
@@ -315,16 +294,9 @@
             box-shadow: 0 10px 25px rgba(255, 105, 180, 0.25);
         }
 
-        .btn-download-video:active, .btn-download-audio:active {
-            transform: scale(0.97);
-        }
+        .btn-download-video:active, .btn-download-audio:active { transform: scale(0.97); }
+        .btn-download-video:disabled, .btn-download-audio:disabled { opacity: 0.6; cursor: not-allowed; }
 
-        .btn-download-video:disabled, .btn-download-audio:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-
-        /* Features Grid */
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -342,43 +314,18 @@
             border: 1px solid rgba(255, 255, 255, 0.6);
         }
 
-        .feature-card:hover {
-            transform: translateY(-4px);
-            background: rgba(255, 240, 248, 0.7);
-        }
+        .feature-card:hover { transform: translateY(-4px); background: rgba(255, 240, 248, 0.7); }
+        .feature-card i { font-size: 36px; margin-bottom: 10px; background: linear-gradient(145deg, #ff5e8e, #ff99bb); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .feature-card h3 { font-size: 14px; font-weight: 700; color: #c45a7a; margin-bottom: 5px; }
+        .feature-card p { font-size: 11px; color: #d87a9a; }
 
-        .feature-card i {
-            font-size: 36px;
-            margin-bottom: 10px;
-            background: linear-gradient(145deg, #ff5e8e, #ff99bb);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .feature-card h3 {
-            font-size: 14px;
-            font-weight: 700;
-            color: #c45a7a;
-            margin-bottom: 5px;
-        }
-
-        .feature-card p {
-            font-size: 11px;
-            color: #d87a9a;
-        }
-
-        /* Result Section */
         .result-section {
             display: none;
             animation: fadeSlideUp 0.4s ease-out;
             margin: 20px 0;
         }
 
-        @keyframes fadeSlideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
         .video-container {
             background: rgba(255, 245, 250, 0.5);
@@ -389,12 +336,7 @@
             padding: 10px;
         }
 
-        .video-container video {
-            width: 100%;
-            max-height: 480px;
-            display: block;
-            border-radius: 32px;
-        }
+        .video-container video { width: 100%; max-height: 480px; display: block; border-radius: 32px; }
 
         .video-info {
             background: rgba(255, 245, 250, 0.6);
@@ -402,21 +344,9 @@
             border-radius: 40px;
         }
 
-        .video-info h3 {
-            color: #b84c72;
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
+        .video-info h3 { color: #b84c72; margin-bottom: 10px; font-size: 16px; }
+        .video-stats { display: flex; gap: 20px; font-size: 13px; color: #d86a8e; flex-wrap: wrap; }
 
-        .video-stats {
-            display: flex;
-            gap: 20px;
-            font-size: 13px;
-            color: #d86a8e;
-            flex-wrap: wrap;
-        }
-
-        /* Tips & History */
         .tips-section, .history-section {
             margin-top: 25px;
             background: rgba(255, 245, 250, 0.55);
@@ -426,51 +356,10 @@
             border: 1px solid rgba(255, 255, 255, 0.6);
         }
 
-        .tips-section h4, .history-title {
-            font-size: 14px;
-            font-weight: 700;
-            color: #c45a7a;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+        .tips-section h4, .history-title { font-size: 14px; font-weight: 700; color: #c45a7a; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .history-list { display: flex; flex-wrap: wrap; gap: 10px; }
+        .history-item { background: rgba(255, 240, 248, 0.7); padding: 8px 18px; border-radius: 60px; font-size: 12px; cursor: pointer; color: #b84c72; font-weight: 500; border: 1px solid rgba(255, 255, 255, 0.5); }
 
-        .history-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .history-item {
-            background: rgba(255, 240, 248, 0.7);
-            padding: 8px 18px;
-            border-radius: 60px;
-            font-size: 12px;
-            cursor: pointer;
-            color: #b84c72;
-            font-weight: 500;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-        }
-
-        /* Sidebar ads */
-        .ad-sidebar {
-            position: fixed;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 160px;
-            z-index: 20;
-            display: none;
-        }
-
-        @media (min-width: 1400px) {
-            .ad-sidebar {
-                display: block;
-            }
-        }
-
-        /* SEO Content */
         .seo-content {
             margin-top: 35px;
             background: rgba(255, 245, 250, 0.5);
@@ -479,43 +368,13 @@
             padding: 28px;
         }
 
-        .seo-content h2 {
-            color: #b84c72;
-            font-size: 22px;
-            margin: 25px 0 15px 0;
-            border-left: 4px solid #ff6b9d;
-            padding-left: 15px;
-        }
+        .seo-content h2 { color: #b84c72; font-size: 22px; margin: 25px 0 15px 0; border-left: 4px solid #ff6b9d; padding-left: 15px; }
+        .seo-content h2:first-of-type { margin-top: 0; }
+        .seo-content h3 { color: #c45a7a; font-size: 18px; margin: 20px 0 12px 0; }
+        .seo-content p { color: #a54266; line-height: 1.6; font-size: 14px; margin-bottom: 14px; }
+        .seo-content ul, .seo-content ol { margin-left: 24px; margin-bottom: 16px; color: #a54266; }
+        .seo-content li { margin-bottom: 6px; line-height: 1.5; }
 
-        .seo-content h2:first-of-type {
-            margin-top: 0;
-        }
-
-        .seo-content h3 {
-            color: #c45a7a;
-            font-size: 18px;
-            margin: 20px 0 12px 0;
-        }
-
-        .seo-content p {
-            color: #a54266;
-            line-height: 1.6;
-            font-size: 14px;
-            margin-bottom: 14px;
-        }
-
-        .seo-content ul, .seo-content ol {
-            margin-left: 24px;
-            margin-bottom: 16px;
-            color: #a54266;
-        }
-
-        .seo-content li {
-            margin-bottom: 6px;
-            line-height: 1.5;
-        }
-
-        /* FAQ Section */
         .faq-section {
             margin-top: 30px;
             background: rgba(255, 245, 250, 0.6);
@@ -523,37 +382,11 @@
             padding: 25px;
         }
 
-        .faq-section h2 {
-            color: #b84c72;
-            font-size: 22px;
-            margin-bottom: 20px;
-            border-left: 4px solid #ff6b9d;
-            padding-left: 15px;
-        }
+        .faq-section h2 { color: #b84c72; font-size: 22px; margin-bottom: 20px; border-left: 4px solid #ff6b9d; padding-left: 15px; }
+        .faq-item { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid rgba(255, 105, 180, 0.2); }
+        .faq-item h3 { color: #c45a7a; font-size: 16px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .faq-item p { color: #a54266; font-size: 14px; line-height: 1.5; margin-left: 24px; }
 
-        .faq-item {
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid rgba(255, 105, 180, 0.2);
-        }
-
-        .faq-item h3 {
-            color: #c45a7a;
-            font-size: 16px;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .faq-item p {
-            color: #a54266;
-            font-size: 14px;
-            line-height: 1.5;
-            margin-left: 24px;
-        }
-
-        /* Loading & Toast */
         .loading-overlay {
             position: fixed;
             top: 0;
@@ -576,19 +409,8 @@
             border-radius: 60px;
         }
 
-        .loading-spinner {
-            width: 55px;
-            height: 55px;
-            border: 3px solid rgba(255, 105, 180, 0.2);
-            border-top: 3px solid #ff6b9d;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-            margin: 0 auto 18px;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
+        .loading-spinner { width: 55px; height: 55px; border: 3px solid rgba(255, 105, 180, 0.2); border-top: 3px solid #ff6b9d; border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 18px; }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
         .toast {
             position: fixed;
@@ -610,43 +432,46 @@
             align-items: center;
             gap: 10px;
         }
+        .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
-        .toast.show {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
-        }
+        .saras-credit { text-align: center; margin-top: 35px; padding: 15px; }
+        .saras-credit p { font-family: 'Pacifico', cursive; font-size: 16px; background: linear-gradient(135deg, #ff6b9d, #ff99bb); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
-        .saras-credit {
-            text-align: center;
-            margin-top: 35px;
-            padding: 15px;
-        }
-
-        .saras-credit p {
-            font-family: 'Pacifico', cursive;
-            font-size: 16px;
-            background: linear-gradient(135deg, #ff6b9d, #ff99bb);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        /* Floating ad */
         .floating-ad {
             position: fixed;
             bottom: 20px;
             left: 20px;
             z-index: 20;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            background: rgba(255, 245, 250, 0.95);
+            backdrop-filter: blur(16px);
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(255,105,180,0.2);
+            border: 1px solid rgba(255,255,255,0.7);
             display: none;
+            max-width: 300px;
+            overflow: hidden;
         }
 
         @media (max-width: 768px) {
-            .floating-ad {
-                display: block;
-            }
+            .floating-ad { display: block; }
+        }
+
+        .close-floating-ad {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #ff6b9d;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 26px;
+            height: 26px;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
         }
 
         @media (max-width: 680px) {
@@ -662,14 +487,15 @@
     </style>
 </head>
 <body>
-    <!-- Glass Orbs -->
     <div class="glass-orb orb-1"></div>
     <div class="glass-orb orb-2"></div>
 
-    <!-- Iklan Floating (mobile) -->
     <div class="floating-ad" id="floatingAd">
-        <div id="container-a0d67747a590a964583cde41657e7297"></div>
-        <button onclick="document.getElementById('floatingAd').style.display='none'" style="position:absolute; top:-10px; right:-10px; background:#ff6b9d; color:white; border:none; border-radius:50%; width:24px; height:24px; cursor:pointer;">×</button>
+        <button class="close-floating-ad" id="closeFloatingBtn">×</button>
+        <div style="padding: 12px 8px 8px 8px;">
+            <span class="ad-label" style="font-size: 9px;">Advertisement</span>
+            <div id="floatingAdContainer"></div>
+        </div>
     </div>
 
     <div class="container">
@@ -691,8 +517,7 @@
             <!-- Iklan Banner Atas -->
             <div class="ad-container">
                 <span class="ad-label"><i class="fas fa-ad"></i> Advertisement</span>
-                <div class="ad-banner">
-<script>(function(s){s.dataset.zone='10900440',s.src='https://n6wxm.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>                </div>
+                <div class="ad-banner" id="topBannerAd"></div>
             </div>
             
             <div class="input-section">
@@ -711,12 +536,10 @@
                 <button class="btn-download-audio" id="downloadAudioBtn"><i class="fas fa-music"></i> Download Audio MP3</button>
             </div>
             
-            <!-- Iklan di tengah (inline) -->
+            <!-- Iklan di tengah -->
             <div class="ad-container">
-                <span class="ad-label"><i class="fas fa-ad"></i> Sponsored</span>
-                <div class="ad-banner">
-                    <div id="container-a0d67747a590a964583cde41657e7297"></div>
-                </div>
+                <span class="ad-label"><i class="fas fa-ad"></i> Sponsored Link</span>
+                <div class="ad-banner" id="midBannerAd"></div>
             </div>
             
             <div class="features">
@@ -754,94 +577,36 @@
                 </div>
             </div>
             
-            <!-- SEO CONTENT PREMIUM -->
             <div class="seo-content">
                 <h2>TikTok Downloader Pro - Solusi Download Video TikTok Tanpa Watermark</h2>
-                <p>TikTok Downloader Pro adalah alat gratis terbaik untuk mengunduh video TikTok tanpa watermark. Dengan layanan kami, Anda dapat menyimpan video favorit dari TikTok langsung ke perangkat Anda dalam kualitas HD original, tanpa logo aplikasi yang mengganggu. Cukup tempel link video TikTok, pilih download video atau audio, dan file akan langsung tersimpan.</p>
-                
+                <p>TikTok Downloader Pro adalah alat gratis terbaik untuk mengunduh video TikTok tanpa watermark. Dengan layanan kami, Anda dapat menyimpan video favorit dari TikTok langsung ke perangkat Anda dalam kualitas HD original, tanpa logo aplikasi yang mengganggu.</p>
                 <h2>Mengapa Harus Download Video TikTok Tanpa Watermark?</h2>
-                <p>Video TikTok yang diunduh langsung dari aplikasi biasanya menyisakan watermark "TikTok" yang bisa mengganggu estetika, terutama jika Anda ingin menggunakannya untuk keperluan edit ulang, kompilasi konten, atau sekadar koleksi pribadi. Dengan TikTok Downloader Pro, Anda mendapatkan video bersih tanpa watermark sehingga lebih fleksibel digunakan.</p>
-                
-                <h3>Keunggulan TikTok Downloader Pro Dibanding Situs Lain</h3>
+                <p>Video TikTok yang diunduh langsung dari aplikasi biasanya menyisakan watermark "TikTok" yang mengganggu. Dengan TikTok Downloader Pro, Anda mendapatkan video bersih tanpa watermark sehingga lebih fleksibel digunakan.</p>
+                <h3>Keunggulan TikTok Downloader Pro</h3>
                 <ul>
-                    <li><strong>✅ Tanpa Watermark Asli</strong> - Bukan hasil crop atau potong pinggiran, video tetap full tanpa logo</li>
-                    <li><strong>✅ Download Audio MP3</strong> - Ekstrak musik dari video TikTok dengan kualitas terbaik</li>
-                    <li><strong>✅ Kualitas HD Original</strong> - Tidak ada penurunan kualitas, video tetap jernih</li>
-                    <li><strong>✅ Gratis Tanpa Registrasi</strong> - Langsung download tanpa perlu login atau bayar</li>
-                    <li><strong>✅ Cepat & Mudah</strong> - Proses hanya beberapa detik, interface user-friendly</li>
-                    <li><strong>✅ Support Semua Link</strong> - Bisa untuk video biasa, live streaming, hingga short link</li>
+                    <li><strong>✅ Tanpa Watermark Asli</strong> - Video full tanpa logo</li>
+                    <li><strong>✅ Download Audio MP3</strong> - Ekstrak musik kualitas terbaik</li>
+                    <li><strong>✅ Kualitas HD Original</strong> - Tidak ada penurunan kualitas</li>
+                    <li><strong>✅ Gratis Tanpa Registrasi</strong> - Langsung download</li>
+                    <li><strong>✅ Cepat & Mudah</strong> - Proses hanya detik</li>
                 </ul>
-                
                 <h2>10 Ide Konten yang Bisa Kamu Download dari TikTok</h2>
-                <p>TikTok menyimpan jutaan konten kreatif setiap harinya. Berikut ide konten yang menarik untuk diunduh:</p>
                 <ol>
-                    <li>Video tutorial masak atau DIY craft</li>
-                    <li>Konten edukasi dan tips belajar</li>
-                    <li>Hiburan komedi dan sketsa lucu</li>
-                    <li>Video viral challenge terbaru</li>
-                    <li>Konten motivasi dan inspirasi</li>
-                    <li>Tari-tarian keren untuk referensi</li>
-                    <li>Video hewan lucu dan menggemaskan</li>
-                    <li>Kutipan kata-kata bijak dengan background aesthetic</li>
-                    <li>Konten olahraga dan workout</li>
-                    <li>Video perjalanan dan wisata</li>
+                    <li>Video tutorial masak</li><li>Konten edukasi</li><li>Hiburan komedi</li>
+                    <li>Video viral challenge</li><li>Konten motivasi</li><li>Tari-tarian keren</li>
+                    <li>Video hewan lucu</li><li>Kata bijak aesthetic</li>
+                    <li>Konten olahraga</li><li>Video perjalanan wisata</li>
                 </ol>
-                
-                <h2>Perbandingan TikTok Downloader Pro dengan Aplikasi Lain</h2>
-                <p>Banyak aplikasi downloader TikTok bertebaran, tapi tidak semua memberikan hasil terbaik. TikTok Downloader Pro hadir dengan keunggulan: tidak perlu instalasi aplikasi (cukup browser), tidak ada iklan pop-up mengganggu, dan yang terpenting video benar-benar tanpa watermark. Berbeda dengan beberapa situs lain yang masih menyisakan logo atau justru menurunkan kualitas video.</p>
-                
                 <h2>Apakah Aman Menggunakan TikTok Downloader Pro?</h2>
-                <p>Ya, sangat aman. TikTok Downloader Pro tidak meminta data pribadi, tidak perlu login akun TikTok, dan tidak menyimpan riwayat download Anda di server. Semua proses dilakukan secara real-time melalui API resmi. Privasi Anda adalah prioritas kami.</p>
-                
-                <h2>Cara Mendapatkan Link Video TikTok</h2>
-                <p>Untuk mendapatkan link video TikTok, buka aplikasi TikTok, pilih video yang ingin diunduh, klik ikon "Bagikan" (panah), lalu pilih "Salin tautan". Link akan tersimpan di clipboard Anda. Setelah itu, tempelkan di kotak input di atas dan klik tombol download.</p>
+                <p>Ya, sangat aman. Tidak meminta data pribadi, tidak perlu login, privasi Anda prioritas kami.</p>
             </div>
             
-            <!-- FAQ SECTION -->
-            <div class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
-                <h2>Pertanyaan Umum (FAQ) - TikTok Downloader</h2>
-                
-                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                    <h3 itemprop="name"><i class="fas fa-question-circle"></i> Apakah download video TikTok tanpa watermark legal?</h3>
-                    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                        <div itemprop="text"><p>Download untuk penggunaan pribadi umumnya diperbolehkan. Namun kami tidak menyarankan untuk mengunggah ulang konten orang lain tanpa izin, karena bisa melanggar hak cipta.</p></div>
-                    </div>
-                </div>
-                
-                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                    <h3 itemprop="name"><i class="fas fa-question-circle"></i> Berapa maksimal ukuran video yang bisa didownload?</h3>
-                    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                        <div itemprop="text"><p>Tidak ada batasan ukuran. Semua video TikTok bisa diunduh dengan kualitas aslinya, biasanya antara 5MB hingga 50MB tergantung durasi.</p></div>
-                    </div>
-                </div>
-                
-                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                    <h3 itemprop="name"><i class="fas fa-question-circle"></i> Apakah harus registrasi atau bayar?</h3>
-                    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                        <div itemprop="text"><p>Tidak perlu registrasi dan GRATIS selamanya. Tidak ada biaya tersembunyi.</p></div>
-                    </div>
-                </div>
-                
-                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                    <h3 itemprop="name"><i class="fas fa-question-circle"></i> Bisa download video TikTok yang diprivate?</h3>
-                    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                        <div itemprop="text"><p>Tidak bisa. Hanya video publik yang dapat diunduh. Video yang diprivate atau dihapus tidak bisa diakses.</p></div>
-                    </div>
-                </div>
-                
-                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                    <h3 itemprop="name"><i class="fas fa-question-circle"></i> Ap tersedia versi mobile app?</h3>
-                    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                        <div itemprop="text"><p>Saat ini kami hanya menyediakan versi web yang sudah mobile-friendly. Cukup akses melalui browser HP, tampilan sudah responsif.</p></div>
-                    </div>
-                </div>
-                
-                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                    <h3 itemprop="name"><i class="fas fa-question-circle"></i> Bagaimana jika tombol download tidak merespon?</h3>
-                    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                        <div itemprop="text"><p>Coba periksa koneksi internet Anda, pastikan link TikTok valid, atau refresh halaman. Jika masih bermasalah, hubungi kami melalui kontak yang tersedia.</p></div>
-                    </div>
-                </div>
+            <div class="faq-section">
+                <h2>Pertanyaan Umum (FAQ)</h2>
+                <div class="faq-item"><h3><i class="fas fa-question-circle"></i> Apakah download video TikTok tanpa watermark legal?</h3><p>Download untuk penggunaan pribadi umumnya diperbolehkan.</p></div>
+                <div class="faq-item"><h3><i class="fas fa-question-circle"></i> Berapa maksimal ukuran video?</h3><p>Tidak ada batasan, semua video bisa diunduh dengan kualitas asli.</p></div>
+                <div class="faq-item"><h3><i class="fas fa-question-circle"></i> Apakah harus registrasi atau bayar?</h3><p>Tidak perlu registrasi dan GRATIS selamanya.</p></div>
+                <div class="faq-item"><h3><i class="fas fa-question-circle"></i> Bisa download video TikTok yang diprivate?</h3><p>Tidak bisa. Hanya video publik yang dapat diunduh.</p></div>
             </div>
             
             <div class="saras-credit">
@@ -1084,8 +849,30 @@
             if(e.key === 'Enter') processVideoAndDownload('video'); 
         });
         
+        document.getElementById('closeFloatingBtn')?.addEventListener('click', () => {
+            document.getElementById('floatingAd').style.display = 'none';
+        });
+        
         loadHistory();
     </script>
+    
+    <!-- SCRIPT IKLAN ASLI - TANPA SIMULASI -->
+    <script>
+    (function(s){
+        s.dataset.zone='10900440';
+        s.src='https://n6wxm.com/vignette.min.js';
+        document.body.appendChild(s);
+    })(document.createElement('script'));
+    </script>
+    
     <script src="https://5gvci.com/act/files/tag.min.js?z=10900423" data-cfasync="false" async></script>
+    
+    <script>
+    (function(s){
+        s.dataset.zone='10900398';
+        s.src='https://nap5k.com/tag.min.js';
+        document.body.appendChild(s);
+    })(document.createElement('script'));
+    </script>
 </body>
 </html>
